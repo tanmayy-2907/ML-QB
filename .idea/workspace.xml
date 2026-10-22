@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0e2fbb0-0b51-420d-8855-5c8e072c8473" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/QB.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1_3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1_final.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mock_datasets/Mock Dataset Creation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2_2_Q1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2_2_Q2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2_2_Q3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2_2_Q4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2_5_Q5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +32,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/1_3.py" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3KzlXheRP6I4KBrogog9fYa1ECV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -51,7 +49,14 @@
     "Python.1_2.executor": "Run",
     "Python.1_3.executor": "Run",
     "Python.1_final.executor": "Run",
+    "Python.2_1.executor": "Run",
+    "Python.2_2.executor": "Run",
+    "Python.2_2_Q2.executor": "Run",
+    "Python.2_2_Q3.executor": "Run",
+    "Python.2_2_Q4.executor": "Run",
+    "Python.2_5_Q5.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
@@ -81,5 +86,16 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

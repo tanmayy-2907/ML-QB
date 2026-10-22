@@ -1,0 +1,183 @@
+# Day 1 Notes — Python, Pandas & Data Preprocessing
+
+- A DataFrame is a two-dimensional tabular data structure containing rows and columns.
+
+## 2. Dataset Inspection
+
+- `df.shape` returns a tuple containing `(number_of_rows, number_of_columns)`.
+- `df.shape[0]` returns the number of rows.
+- `df.shape[1]` returns the number of columns.
+- `df.columns` returns the column names as a Pandas Index object.
+- `list(df.columns)` converts the column names into a Python list.
+- `df.info()` displays column names, data types, non-null counts, and memory usage. It prints the information directly and returns `None`.
+- `df.describe()` displays descriptive statistics such as count, mean, standard deviation, minimum, maximum, and quartiles for numerical columns.
+
+## 3. Missing Values
+
+- `df.isnull()` checks each cell for missing values and returns `True` for missing entries and `False` otherwise.
+- `df.isnull().sum()` counts missing values in each column.
+- `df.count()` returns the number of non-null values in each column; it does not directly return the total number of rows.
+- Use `df.shape[0]` or `len(df)` to count the total number of rows.
+
+## 4. Selecting Columns
+
+- `df["TV"]` selects a single column and returns a Series.
+- `df[["TV", "Sales"]]` selects multiple columns and returns a DataFrame.
+- `pd.read_csv("file.csv", usecols=["TV", "Sales"])` loads only the specified columns from a CSV file.
+- `df.iloc[:, [0, 1]]` selects columns by integer position. The colon `:` selects all rows.
+- Prefer selecting columns by name when possible because column positions may change.
+
+## 5. Unique Values and Value Counts
+
+- `df["Owner"].unique()` returns the distinct values in a column.
+- `df["Purchased"].value_counts()` counts the occurrences of each category.
+- `df["Purchased"].value_counts(normalize=True)` returns the proportion of each category instead of its raw count.
+- Multiplying normalized counts by `100` converts proportions into percentages.
+- `percent.iloc[0]` accesses the first element by position, regardless of its index label.
+- `.loc[]` is used for label-based access, while `.iloc[]` is used for integer-position-based access.
+
+## 6. Filtering Rows Using Conditions
+
+- `df[df["Year"] >= 2020]` selects rows where the year is 2020 or later.
+- `df[df["Kms_Driven"] > 50000]` selects rows where kilometres driven exceed 50,000.
+- Use `&` to combine conditions with logical AND.
+- Use `|` to combine conditions with logical OR.
+- Put each condition in parentheses when combining multiple conditions.
+
+Example:
+
+```
+filtered_df = df[    (df["Year"] >= 2020) &    (df["Transmission"] == "Automatic")]
+```
+
+## 7. Features and Target
+
+- Features (`X`) are the input variables used by a machine learning model to make predictions.
+- Target (`y`) is the variable the model is trained to predict.
+
+## 8. Training and Testing Data
+
+- `train_test_split()` divides a dataset into training and testing subsets.
+- The training set is used to train the model.
+- The testing set is used to evaluate the model on data not used for training.
+- `random_state=42` makes the split reproducible so that repeated runs with the same data and settings produce the same split.
+- `stratify=y` helps preserve the target class proportions in the training and testing sets. It does not guarantee perfectly identical proportions in every split.
+
+Example:
+
+```
+from sklearn.model_selection import train_test_splitX_train, X_test, y_train, y_test = train_test_split(    X, y,    test_size=0.2,    random_state=42)
+```
+
+- `X_train` contains training features.
+- `X_test` contains testing features.
+- `y_train` contains training targets.
+- `y_test` contains testing targets.
+
+
+# Day 2 Notes — Advertising Regression (Q1–Q5)
+
+## 1. Regression Basics
+
+- Regression: Supervised machine learning used to predict continuous numerical values.
+- Simple Linear Regression: Uses one input feature.
+- Multiple Linear Regression: Uses two or more input features.
+- Polynomial Regression: Adds powers and interactions of features to model nonlinear relationships.
+- Linear regression equation: \\(y=mx+c\\)
+- Multiple regression equation: \\(y=b_0+b_1x_1+b_2x_2+\cdots+b_px_p\\)
+- Best-fit line: Linear Regression minimizes the sum of squared residuals (SSE).
+- Coefficient/slope: Represents the change in prediction for a one-unit change in a feature, holding other features constant.
+- Intercept: Predicted target value when all input features are zero.
+
+## 2. Evaluation Metrics
+
+- SSE: Sum of squared differences between actual and predicted values.
+- MSE: SSE divided by the number of observations.
+- RMSE: Square root of MSE; expressed in the target's original units.
+- MAE: Average absolute prediction error.
+- R²: Proportion of target variance explained by the model.
+  - \\(R^2=1\\): perfect predictions.
+  - \\(R^2=0\\): equivalent to predicting the test-set mean.
+  - \\(R^2<0\\): worse than that baseline.
+- Adjusted R²: R² adjusted for the number of input features; penalizes unnecessary features.
+
+### Important formulas
+
+- SSE = \\(\sum(y_i-\hat y_i)^2\\)
+- MSE = \\(\frac{\sum(y_i-\hat y_i)^2}{n}\\)
+- RMSE = \\(\sqrt{MSE}\\)
+- MAE = \\(\frac{\sum|y_i-\hat y_i|}{n}\\)
+- R² = \\(1-\frac{SSE}{SST}\\)
+- Adjusted R² = \\(1-(1-R^2)\frac{n-1}{n-p-1}\\)
+
+Here, \\(n\\) is the number of observations and \\(p\\) is the number of input features.
+
+Rule of thumb: Lower RMSE/MAE is better; higher R²/adjusted R² is better.
+
+## 3. Train-Test Split and Model Evaluation
+
+- `test_size = 0.2` means 80% training data and 20% testing data.
+- `random_state = 42` makes the split reproducible.
+- `fit()` trains the model; `predict()` generates predictions.
+- Use the same train-test split when comparing models to make the comparison fair.
+- `model.coef_` contains learned coefficients; `model.intercept_` contains the intercept.
+
+## 4. Pandas and NumPy Key Points
+
+- `pd.read_csv()` loads a CSV file into a DataFrame.
+- Selecting `df[["TV"]]` returns a DataFrame; selecting `df["TV"]` returns a Series.
+- `Series.to_numpy()` converts a Pandas Series to a NumPy array and removes its index.
+- `y_test` retains original row indices after `train_test_split`, whereas predictions from `model.predict()` are a NumPy array.
+- When combining actual values and predictions in a DataFrame, converting `y_test` to NumPy ensures positional alignment.
+- `pd.DataFrame(list_of_dictionaries)` converts a list of dictionaries into a table.
+- `sort_values()` sorts rows; `ascending=False` sorts from largest to smallest.
+- `head(5)` selects the first five rows.
+- `.abs()` calculates absolute values.
+- `.idxmin()` returns the index label of the minimum value.
+- `.loc[]` selects by index label; `.iloc[]` selects by integer position.
+- `.round(4)` rounds displayed values to four decimal places.
+
+## 5. Q1 — Feature Combination Comparison
+
+- Train models using TV, Radio, Newspaper individually and in different combinations.
+- Compare RMSE and R² for each combination.
+- A single feature uses Simple Linear Regression; two or more features use Multiple Linear Regression.
+- The model with the lowest RMSE has the smallest prediction error among the tested models.
+- In your results, TV + Radio performed almost as well as all three features; Newspaper added negligible predictive improvement.
+
+## 6. Q2 — Linear vs Polynomial Regression
+
+- Linear regression using TV and Radio models a linear relationship with both features.
+- Degree-2 polynomial regression adds TV², Radio² and TV × Radio.
+- `PolynomialFeatures` expands the original feature set.
+- `include_bias=False` avoids adding a constant column because Linear Regression already fits an intercept by default.
+- Use `fit_transform()` on training data and `transform()` on test data.
+- Compare both models using RMSE and R².
+- In your results, polynomial regression performed slightly better on the test set.
+
+## 7. Q3 — Newspaper Contribution and Adjusted R²
+
+- Model A uses TV, Radio and Newspaper; Model B uses only TV and Radio.
+- Compare RMSE, R² and adjusted R².
+- For Model A, \\(p=3\\); for Model B, \\(p=2\\).
+- Use the number of observations in the evaluation set for \\(n\\) when calculating adjusted R² from the corresponding test-set R².
+- In your results, Model B had higher adjusted R², suggesting Newspaper did not justify the extra feature complexity.
+
+## 8. Q4 — Residual Analysis
+
+- Residual: Actual value − predicted value.
+- Positive residual: Model underpredicted.
+- Negative residual: Model overpredicted.
+- Absolute residual: Absolute value of the residual; measures error magnitude regardless of direction.
+- Sort by absolute residual in descending order to find the five largest prediction errors.
+- Actual-vs-predicted scatter plot: points closer to the reference line \\(y=x\\) indicate more accurate predictions.
+- The reference line represents perfect predictions.
+
+## 9. Q5 — Effect of Training Data Size
+
+- Test size 0.5 → 50% training data, 50% testing data.
+- Test size 0.3 → 70% training data, 30% testing data.
+- Test size 0.2 → 80% training data, 20% testing data.
+- Train a separate model for each split and calculate RMSE and R².
+- Different splits can produce different test observations, so more training data does not guarantee better scores on every individual split.
+- In your results, the 70% training split performed best among the three tested splits.
