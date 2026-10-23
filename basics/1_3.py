@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-social_networks_df = pd.read_csv("mock_datasets/social_network_ads.csv")
+social_networks_df = pd.read_csv("../mock_datasets/social_network_ads.csv")
 
 print(social_networks_df.head())
 print(social_networks_df.tail())

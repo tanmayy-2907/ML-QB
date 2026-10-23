@@ -3,7 +3,7 @@ import pandas as pd
 from pandas.core.common import random_state
 
 #1. dataset loading
-advertisement_df = pd.read_csv("mock_datasets/advertising.csv")
+advertisement_df = pd.read_csv("../mock_datasets/advertising.csv")
 
 #2. dataset inspection
 print("\nTop 5 rows for AD:")

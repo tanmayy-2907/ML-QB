@@ -17,7 +17,7 @@ import numpy as np
 from matplotlib.backends.backend_pdf import pdfRepr
 from scipy.linalg import sqrtm
 
-advertisement_df = pd.read_csv("mock_datasets/advertising.csv")
+advertisement_df = pd.read_csv("../mock_datasets/advertising.csv")
 
 #2 Importing models and metrics
 from sklearn.model_selection import train_test_split

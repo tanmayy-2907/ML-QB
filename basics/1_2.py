@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-used_cars_df = pd.read_csv("mock_datasets/used_cars.csv")
+used_cars_df = pd.read_csv("../mock_datasets/used_cars.csv")
 
 # print(used_cars_df.head())
 # print(used_cars_df.tail())
@@ -44,7 +44,7 @@ carsdf1 = used_cars_df[["Year", "Kms_Driven", "Selling_Price"]]
 print(carsdf1)
 
 #Approach2 - Using only selective cols while loading csv itself
-carsdf2 = pd.read_csv("mock_datasets/used_cars.csv", usecols =["Year", "Kms_Driven", "Selling_Price"])
+carsdf2 = pd.read_csv("../mock_datasets/used_cars.csv", usecols =["Year", "Kms_Driven", "Selling_Price"])
 print(carsdf2)
 
 #Approach3 - Using Index rather than names (iloc property)

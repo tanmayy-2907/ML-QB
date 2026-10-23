@@ -1,9 +1,9 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-advertisement_df = pd.read_csv("mock_datasets/advertising.csv")
-used_cars_df = pd.read_csv("mock_datasets/used_cars.csv")
-social_networks_df = pd.read_csv("mock_datasets/social_network_ads.csv")
+advertisement_df = pd.read_csv("../mock_datasets/advertising.csv")
+used_cars_df = pd.read_csv("../mock_datasets/used_cars.csv")
+social_networks_df = pd.read_csv("../mock_datasets/social_network_ads.csv")
 
 # #Filtering Rows Using Conditions
 #
