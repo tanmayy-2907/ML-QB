@@ -14,7 +14,7 @@ from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.tree import DecisionTreeRegressor #Decision Tree Model
 from sklearn.preprocessing import LabelEncoder
 
-used_cars_df = pd.read_csv("mock_datasets/used_cars.csv")
+used_cars_df = pd.read_csv("../mock_datasets/used_cars.csv")
 
 # Encoding Categorical columns using Label Encoding method
 le_transmission = LabelEncoder()

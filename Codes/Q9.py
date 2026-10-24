@@ -15,7 +15,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score,mean_squared_error
 
-used_cars_df = pd.read_csv("mock_datasets/used_cars.csv")
+used_cars_df = pd.read_csv("../mock_datasets/used_cars.csv")
 
 #Since we already did Label Encoding, for this Q, we will do One Hot Encoding
 #One Hot Encoding snippet

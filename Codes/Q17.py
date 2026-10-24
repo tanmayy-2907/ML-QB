@@ -13,7 +13,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("mock_datasets/social_network_ads.csv")
+df = pd.read_csv("../mock_datasets/social_network_ads.csv")
 
 X = df[["Age", "EstimatedSalary"]]
 Y = df["Purchased"]

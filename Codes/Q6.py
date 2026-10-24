@@ -12,7 +12,7 @@ from sklearn.tree import DecisionTreeRegressor #Decision Tree Model
 from sklearn.ensemble import RandomForestRegressor #Random Forest Model
 from sklearn.preprocessing import LabelEncoder
 
-used_cars_df = pd.read_csv("mock_datasets/used_cars.csv")
+used_cars_df = pd.read_csv("../mock_datasets/used_cars.csv")
 
 # Transmission and Owner are text features.
 # We must convert them into numeric values before using these Regression models.

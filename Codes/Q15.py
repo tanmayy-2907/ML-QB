@@ -14,7 +14,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score,recall_score,precision_score,f1_score
 
 
-df = pd.read_csv("mock_datasets/social_network_ads.csv")
+df = pd.read_csv("../mock_datasets/social_network_ads.csv")
 
 X = df[["Age", "EstimatedSalary"]]
 y = df["Purchased"]

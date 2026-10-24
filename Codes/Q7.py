@@ -7,7 +7,7 @@ from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.linear_model import LinearRegression
 
 
-used_cars_df = pd.read_csv("mock_datasets/used_cars.csv")
+used_cars_df = pd.read_csv("../mock_datasets/used_cars.csv")
 
 #Deriving Age Attribute
 used_cars_df["Age"] = 2026 - used_cars_df["Year"]

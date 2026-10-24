@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
 # 1. Load dataset
-df = pd.read_csv("mock_datasets/advertising.csv")
+df = pd.read_csv("../mock_datasets/advertising.csv")
 
 # 2. Separate all features and target
 X = df[["TV", "Radio", "Newspaper"]]

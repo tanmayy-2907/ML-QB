@@ -6,7 +6,7 @@ from sklearn.metrics import r2_score,mean_squared_error,mean_absolute_error,root
 from sklearn.linear_model import LinearRegression
 
 # Training a Linear Model on TV, Radio
-advertisement_df = pd.read_csv("mock_datasets/advertising.csv")
+advertisement_df = pd.read_csv("../mock_datasets/advertising.csv")
 
 X = advertisement_df[["TV", "Radio"]]
 Y = advertisement_df["Sales"]

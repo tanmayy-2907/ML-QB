@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0e2fbb0-0b51-420d-8855-5c8e072c8473" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2_Q1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2_Q2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2_Q3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2_Q4.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2_Q5.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_Q10.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_Q11.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_Q6.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_Q7.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_Q8.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_Q9.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4_Q12.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4_Q13.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4_Q14.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4_Q15.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4_Q16.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4_Q18.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q_17.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,38 +36,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1_final.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_2_Q2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_2_Q3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_2_Q4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2_5_Q5.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_Q10.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_Q11.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_Q6.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_Q7.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_Q8.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3_Q9.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_Q12.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_Q13.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_Q14.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_Q15.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_Q16.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4_Q18.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5_Q19.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Q_17.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.1.executor": "Run",
+    "Python.1_2.executor": "Run",
+    "Python.1_3.executor": "Run",
+    "Python.1_final.executor": "Run",
+    "Python.2_1.executor": "Run",
+    "Python.2_2.executor": "Run",
+    "Python.2_2_Q2.executor": "Run",
+    "Python.2_2_Q3.executor": "Run",
+    "Python.2_2_Q4.executor": "Run",
+    "Python.2_5_Q5.executor": "Run",
+    "Python.3_Q10.executor": "Run",
+    "Python.3_Q11.executor": "Run",
+    "Python.3_Q6.executor": "Run",
+    "Python.3_Q7.executor": "Run",
+    "Python.3_Q8.executor": "Run",
+    "Python.3_Q9.executor": "Run",
+    "Python.4_Q12.executor": "Run",
+    "Python.4_Q13.executor": "Run",
+    "Python.4_Q14.executor": "Run",
+    "Python.4_Q15.executor": "Run",
+    "Python.4_Q16.executor": "Run",
+    "Python.4_Q18.executor": "Run",
+    "Python.5_Q19.executor": "Run",
+    "Python.Q_17.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\KOLEJ\SEM\SEM 7\ML\PRACTICAL EXAM\QB" />

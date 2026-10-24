@@ -9,7 +9,7 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
 # Training a Linear Model on TV, Radio, Newspaper
-advertisement_df = pd.read_csv("mock_datasets/advertising.csv")
+advertisement_df = pd.read_csv("../mock_datasets/advertising.csv")
 
 X = advertisement_df[["TV", "Radio","Newspaper"]]
 Y = advertisement_df["Sales"]

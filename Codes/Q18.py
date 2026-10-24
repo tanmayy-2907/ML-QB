@@ -19,7 +19,7 @@ from sklearn.metrics import (
     precision_score, recall_score, f1_score
 )
 
-df = pd.read_csv("mock_datasets/social_network_ads.csv")
+df = pd.read_csv("../mock_datasets/social_network_ads.csv")
 
 X = df[["Age", "EstimatedSalary"]]
 y = df["Purchased"]

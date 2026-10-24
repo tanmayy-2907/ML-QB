@@ -12,7 +12,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
-social_df = pd.read_csv("mock_datasets/social_network_ads.csv")
+social_df = pd.read_csv("../mock_datasets/social_network_ads.csv")
 
 X = social_df[["Age", "EstimatedSalary"]]
 Y = social_df["Purchased"]
