@@ -71,6 +71,4 @@ results.append({
     "R2" : NumR2
 })
 
-
-
 print(pd.DataFrame(results).round(4))

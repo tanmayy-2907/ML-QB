@@ -1,4 +1,5 @@
-# Q5. Effect of training data size on sales prediction. Train models on varying Train-test split ratio(50,70,80)
+# Q5. Effect of training data size on sales prediction.
+# Train models on varying Train-test split ratio(50,70,80)
 
 import pandas as pd
 import numpy as np

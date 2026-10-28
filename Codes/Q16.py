@@ -7,12 +7,13 @@
 # 3. Compare their decision regions and test-set performance.
 
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
+from scipy.stats import alpha
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
+from sklearn.inspection import DecisionBoundaryDisplay
 
 df = pd.read_csv("../mock_datasets/social_network_ads.csv")
 
@@ -29,8 +30,8 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 # Train both models
-linear = SVC(kernel="linear")
-rbf = SVC(kernel="rbf")
+linear = SVC(kernel="linear", random_state=42)
+rbf = SVC(kernel="rbf", random_state=42)
 
 linear.fit(X_train, y_train)
 rbf.fit(X_train, y_train)
@@ -39,35 +40,110 @@ rbf.fit(X_train, y_train)
 print("Linear SVM Accuracy:", accuracy_score(y_test, linear.predict(X_test)))
 print("RBF SVM Accuracy:", accuracy_score(y_test, rbf.predict(X_test)))
 
-# Create 100 evenly spaced Age and Salary values
-age = np.linspace(X["Age"].min(), X["Age"].max(), 100)
-salary = np.linspace(X["EstimatedSalary"].min(), X["EstimatedSalary"].max(), 100)
-
-# Create a grid of all possible Age and Salary combinations
-xx, yy = np.meshgrid(age, salary)
-
-# Store grid coordinates as input features for prediction
-grid = pd.DataFrame({
-    "Age": xx.ravel(),
-    "EstimatedSalary": yy.ravel()
-})
-
-# Scale grid using the same scaler
-grid_scaled = scaler.transform(grid)
+# Convert scaled arrays back to DataFrames for plotting
+X_train_plot = pd.DataFrame(
+    X_train, columns=["Age", "EstimatedSalary"]
+)
+X_test_plot = pd.DataFrame(
+    X_test, columns=["Age", "EstimatedSalary"]
+)
 
 # Plot both decision boundaries
-plt.figure(figsize=(12, 5))
+# fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+#
+# # Linear SVM
+# DecisionBoundaryDisplay.from_estimator(
+#     linear,
+#     X_train,
+#     alpha=0.4,
+#     response_method="predict",
+#     cmap="bwr",
+#     ax=axes[0]
+# )
+#
+# axes[0].scatter(
+#     X_test_plot["Age"],
+#     X_test_plot["EstimatedSalary"],
+#     c=y_test,
+#     edgecolors="k",
+#     cmap="bwr"
+# )
+#
+# axes[0].set_xlabel("Standardized Age")
+# axes[0].set_ylabel("Standardized Estimated Salary")
+# axes[0].set_title("Linear SVM")
+#
+# # RBF SVM
+# DecisionBoundaryDisplay.from_estimator(
+#     rbf,
+#     X_train,
+#     alpha=0.4,
+#     response_method="predict",
+#     cmap="bwr",
+#     ax=axes[1]
+# )
+#
+# axes[1].scatter(
+#     X_test_plot["Age"],
+#     X_test_plot["EstimatedSalary"],
+#     c=y_test,
+#     edgecolors="k",
+#     cmap="bwr"
+# )
+#
+# axes[1].set_xlabel("Standardized Age")
+# axes[1].set_ylabel("Standardized Estimated Salary")
+# axes[1].set_title("RBF SVM")
+#
+# plt.tight_layout()
+# plt.show()
 
-for i, model in enumerate([linear, rbf], 1):
-    Z = model.predict(grid_scaled).reshape(xx.shape)
 
-    # Color the regions according to the model's predictions
-    plt.subplot(1, 2, i)
-    plt.contourf(xx, yy, Z, alpha=0.3)
-    plt.scatter(X["Age"], X["EstimatedSalary"], c=y)
-    plt.xlabel("Age")
-    plt.ylabel("Estimated Salary")
-    plt.title(["Linear SVM", "RBF SVM"][i-1])
+fig, axes = plt.subplots(1,2,figsize=(12,5))
 
+#LInear svm
+DecisionBoundaryDisplay.from_estimator(
+    linear,
+    X_train,
+    alpha=0.4,
+    response_method="predict",
+    cmap = "bwr",
+    ax = axes[0]
+)
+
+axes[0].scatter(
+    X_test_plot["Age"],
+    X_test_plot["EstimatedSalary"],
+    c=y_test,
+    edgecolors="k",
+    cmap="bwr"
+)
+
+axes[0].set_xlabel("Age")
+axes[0].set_ylabel("EstimatedSalary")
+axes[0].set_title("Linear SVM")
+
+DecisionBoundaryDisplay.from_estimator(
+    rbf,
+    X_train,
+    alpha=0.4,
+    response_method="predict",
+    cmap="bwr",
+    ax=axes[1]
+)
+
+axes[1].scatter(
+    X_test_plot["Age"],
+    X_test_plot["EstimatedSalary"],
+    c=y_test,
+    edgecolors="k",
+    cmap="bwr"
+)
+axes[1].set_xlabel("Age")
+axes[1].set_ylabel("Estimated Salary")
+axes[1].set_title("RBF SVM")
+
+plt.tight_layout()
 plt.show()
+
 

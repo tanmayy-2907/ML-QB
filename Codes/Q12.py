@@ -11,15 +11,18 @@
 # It works well when the classes can be separated approximately linearly.
 
 # RBF SVM
-# Uses the Radial Basis Function kernel to learn nonlinear decision boundaries when a straight line may not separate the classes well.
-
+# Uses the Radial Basis Function kernel to learn nonlinear decision boundaries
 # Metric used in SVM Models -> Accuracy
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score,classification_report
 from sklearn.svm import SVC
+from sklearn.preprocessing import StandardScaler
 
 social_df = pd.read_csv("../mock_datasets/social_network_ads.csv")
+
+scale = StandardScaler()
+
 
 X = social_df[["Age", "EstimatedSalary"]]
 Y = social_df["Purchased"]
@@ -29,11 +32,12 @@ X_train,X_test,Y_train,Y_test = train_test_split(
     test_size=0.2,
     random_state=42
 )
-
+X_train_scaled = scale.fit_transform(X_train)
+X_test_scaled = scale.transform(X_test)
 #Training Linear SVM Model
 linear_model = SVC(kernel="linear")
-linear_model.fit(X_train,Y_train)
-Y_pred_linear = linear_model.predict(X_test)
+linear_model.fit(X_train_scaled,Y_train)
+Y_pred_linear = linear_model.predict(X_test_scaled)
 
 #Metric
 linear_acc = accuracy_score(Y_test,Y_pred_linear)
@@ -48,11 +52,12 @@ rbf_acc = accuracy_score(Y_test, Y_pred_rbf)
 # Compare results
 results = pd.DataFrame({
     "Model": ["Linear SVM", "RBF SVM"],
-    "Accuracy": [linear_acc, rbf_acc]
+    "Metrics": [linear_acc, rbf_acc]
 })
 
 print(results)
-
+print(classification_report(Y_test,Y_pred_linear))
+print(classification_report(Y_test,Y_pred_rbf))
 # #KEY POINTS
 # SVC is scikit-learn's Support Vector Classification model.
 # kernel="linear" creates a linear decision boundary.

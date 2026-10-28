@@ -59,11 +59,11 @@ print("Entropy Model Confusion Matrix: ", confusion_matrix(ytest, entropy_pred))
 plt.figure(figsize=(12,5)) #Sets overall figure size
 
 plt.subplot(1,2,1) #Creates first plot out of 2.
-plot_tree(gini_pred, filled=True) #Draw gini tree with colored nodes
+plot_tree(gini_model, filled=True) #Draw gini tree with colored nodes
 plt.title("Gini")
 
-plt.subplot(1,2,1) #Creates second plot out of 2.
-plot_tree(entropy_pred, filled=True) #Draw entropy tree with colored nodes
+plt.subplot(1,2,2) #Creates second plot out of 2.
+plot_tree(entropy_model, filled=True) #Draw entropy tree with colored nodes
 plt.title("Entropy")
 
 plt.show()

@@ -52,6 +52,6 @@ plt.ylabel("Predicted Values")
 plt.title("Actual Vs Predicted Target Values")
 plt.plot(
     [Y_test.min(), Y_test.max()],
-    [Y_test.min(), Y_test.max()],
+    [Y_test.min(), Y_test.max()],  #plt.plot([x1, x2], [y1, y2])
     "r--")
 plt.show()

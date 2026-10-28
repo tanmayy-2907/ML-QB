@@ -31,7 +31,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 #untuned SVM
 untuned_model = Pipeline([
     ("scalar",StandardScaler()),
-    ("svm", SVC())
+    ("svm", SVC(kernel="rbf"))
 ])
 
 untuned_model.fit(X_train, y_train)

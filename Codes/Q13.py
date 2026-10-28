@@ -8,7 +8,7 @@
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score,f1_score,precision_score,recall_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
@@ -27,6 +27,9 @@ rbf_model = SVC(kernel="rbf")
 rbf_model.fit(X_train, Y_train)
 Y_pred_rbf = rbf_model.predict(X_test)
 rbf_acc = accuracy_score(Y_test, Y_pred_rbf)
+rbf_pre = precision_score(Y_test,Y_pred_rbf)
+rbf_rec = recall_score(Y_test, Y_pred_rbf)
+rbf_f1 = f1_score(Y_test,Y_pred_rbf)
 
 # Why do we need feature scaling?
 # Your dataset has two features with different numerical ranges:
@@ -47,10 +50,17 @@ scaled_model = SVC(kernel="rbf")
 scaled_model.fit(X_train_scaled,Y_train)
 Y_pred_scaled = scaled_model.predict(X_test_scaled)
 scaled_acc = accuracy_score(Y_test,Y_pred_scaled)
+scaled_pre = precision_score(Y_test,Y_pred_scaled)
+scaled_rec = recall_score(Y_test,Y_pred_scaled)
+scaled_f1 = f1_score(Y_test,Y_pred_scaled)
+
 
 results = pd.DataFrame({
     "Model" : ["Unscaled", "Scaled"],
-    "Accuracy" : [rbf_acc,scaled_acc]
+    "Accuracy" : [rbf_acc,scaled_acc],
+"Precision" : [rbf_pre,scaled_pre],
+"Recall" : [rbf_rec,scaled_rec],
+"F1" : [rbf_f1,scaled_f1],
 })
 
 print(results.round(4))
